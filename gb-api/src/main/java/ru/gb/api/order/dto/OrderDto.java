@@ -42,8 +42,8 @@ public class OrderDto implements Serializable {
     @NotBlank
     private String phone;
 
-//    @Email
-//    private String mail;
+    @Email
+    private String mail;
 
     private OrderStatus status;
 

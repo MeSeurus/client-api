@@ -18,6 +18,7 @@ import ru.gb.api.product.api.ProductGateway;
 public class FeignConfiguration {
 
     private final GbApiProperties gbApiProperties;
+
     private final FeignClientFactory feignClientFactory;
 
     @Bean
