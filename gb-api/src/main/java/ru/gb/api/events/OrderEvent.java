@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Builder
 public class OrderEvent implements Serializable {
 
-    static final long serialVersionUID = -8863620718965821728L;
+    static final long serialVersionUID = -5153936237869978336L;
 
     private OrderDto orderDto;
 }
