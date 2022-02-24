@@ -20,20 +20,30 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 public class ProductDto {
+
     private Long id;
+
     @NotBlank
     private String title;
+
     @NotNull
     @DecimalMin(value = "0.0", inclusive = false)
     @Digits(integer=6, fraction=2)
     private BigDecimal cost;
+
     @PastOrPresent
     @JsonFormat(pattern="dd.MM.yyyy")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate manufactureDate;
+
     @NotNull
     private Status status;
+
     private String manufacturer;
+
     private Set<CategoryDto> categories;
+
+    private String category;
+
 }

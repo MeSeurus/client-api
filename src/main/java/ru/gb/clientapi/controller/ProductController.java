@@ -17,9 +17,10 @@ import java.util.Set;
 @RequestMapping("gbshop/product")
 public class ProductController {
 
-    private final ProductService productService;
     private final ProductGateway productGateway;
     private final ManufacturerGateway manufacturerGateway;
+    private final ProductService productService;
+
 
     @GetMapping("/all")
     public String getProductList(Model model) {
@@ -33,7 +34,7 @@ public class ProductController {
         if (id != null) {
             productDto = productGateway.getProduct(id).getBody();
         } else {
-            return "redirect:/shop/product/all";
+            return "redirect:/gbshop/product/all";
         }
         model.addAttribute("product", productDto);
         return "product-info";
@@ -66,7 +67,7 @@ public class ProductController {
 
     @GetMapping("/delete")
     public String deleteById(@RequestParam(name = "id") Long id) {
-        productService.deleteById(id);
+        productGateway.deleteById(id);
         return "redirect:/gbshop/product/all";
     }
 }

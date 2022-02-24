@@ -25,7 +25,7 @@
                 <th scope="col">Редактировать</th>
                 <th scope="col">Удалить</th>
                 <th scope="col">Информация</th>
-<!--                <th scope="col">В Корзину</th>-->
+                <th scope="col">В Корзину</th>
             </tr>
             </thead>
 
@@ -38,20 +38,20 @@
                 <div>
                     <td>
                         <a type="button" class="btn btn-warning"
-                           th:href="@{/shop/product(id=${product.id})}">Редактировать</a>
+                           th:href="@{/gbshop/product(id=${product.id})}">Редактировать</a>
                     </td>
                     <td>
                         <a type="button" class="btn btn-danger"
-                           th:href="@{/shop/product/delete(id=${product.id})}">Удалить</a>
+                           th:href="@{/gbshop/product/delete(id=${product.id})}">Удалить</a>
                     </td>
                 </div>
 
                 <div>
                     <td>
-                        <a type="button" class="btn btn-warning" th:href="@{'/shop/product/' + ${product.id}}">Информация</a>
+                        <a type="button" class="btn btn-warning" th:href="@{'/gbshop/product/' + ${product.id}}">Информация</a>
                     </td>
                     <td>
-                        <a type="button" class="btn btn-warning" th:href="@{/shop/order/cart/add(id=${product.id})}">В
+                        <a type="button" class="btn btn-warning" th:href="@{/gbshop/order/cart/add(id=${product.id})}">В
                             Корзину</a>
                     </td>
                 </div>
