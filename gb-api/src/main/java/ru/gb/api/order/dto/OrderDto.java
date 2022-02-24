@@ -30,25 +30,35 @@ public class OrderDto implements Serializable {
     static final long serialVersionUID = -1651143003584311074L;
 
     private Long id;
+
     private String address;
+
     @NotBlank
     private String firstname;
+
     @NotBlank
     private String lastname;
+
     @NotBlank
     private String phone;
-    @Email
-    private String mail;
+
+//    @Email
+//    private String mail;
+
     private OrderStatus status;
+
     @JsonFormat(pattern="dd.MM.yyyy")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate deliveryDate;
+
     @NotEmpty
     private Set<ProductDto> products;
+
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime createdDate;
+
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime lastModifiedDate;

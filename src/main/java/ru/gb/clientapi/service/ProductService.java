@@ -16,4 +16,33 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductService {
 
+    private final CategoryGateway categoryGateway;
+
+    public Set<CategoryDto> getCategoryDtoFromString(ProductDto productDto) {
+
+        String category = productDto.getCategory();
+        Set<String> categories;
+        Set<CategoryDto> result = new HashSet<>();
+        if (category.contains(",")) {
+            categories = Set.copyOf(Arrays.asList(category.split(",")));
+        } else if (category.contains(" ")) {
+            categories = Set.copyOf(Arrays.asList(category.split(" ")));
+        } else {
+            categories = Set.of(category);
+        }
+        categories = categories.stream().map(String::trim).collect(Collectors.toSet());
+        for (String s : categories) {
+            int size = result.size();
+            for (CategoryDto categoryDto : categoryGateway.getCategoryList()) {
+                if (categoryDto.getTitle().equals(s)) {
+                    result.add(categoryDto);
+                }
+            }
+            if (size == result.size()){
+                throw new NoSuchElementException("Category " + s + " doesn't exist");
+            }
+        }
+        return result;
+    }
+
 }

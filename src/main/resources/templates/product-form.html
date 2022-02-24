@@ -57,15 +57,6 @@
         </div>
 
         <div class="mb-3">
-            <label for="status-id" class="form-label">Наличие товара</label>
-            <select class="form-select" aria-label="Default select example" id="status-id" th:field="*{status}">
-                <option th:each="statusValue : ${T(ru.gb.api.common.enums.Status).values()}"
-                        th:value="${statusValue.name()}"
-                        th:text="${statusValue.title}"></option>
-            </select>
-        </div>
-
-        <div class="mb-3">
             <button type="submit" class="btn btn-primary" id="submit-id">Submit</button>
         </div>
 
